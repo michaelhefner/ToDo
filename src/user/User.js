@@ -1,13 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loginUser, logoutUser } from './actions';
 import LoginUserForm from './LoginUserForm';
-
-
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const User = ({ user = {}, onLoginPressed, onLogoutPressed }) => {
+const User = ({ user = {} }) => {
     return (
         <>
             <LoginUserForm />
@@ -19,8 +16,5 @@ const User = ({ user = {}, onLoginPressed, onLogoutPressed }) => {
 const mapStateToProps = state => ({
     user: state.user,
 })
-const mapDispatchToProps = dispatch => ({
-    onLoginPressed: text => dispatch(loginUser(text)),
-    onLogoutPressed: text => dispatch(logoutUser(text)),
-})
-export default connect(mapStateToProps, mapDispatchToProps)(User);
+
+export default connect(mapStateToProps, null)(User);
